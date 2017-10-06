@@ -1,0 +1,82 @@
+.floater {
+	position:fixed;
+	left:0;top:0;
+	box-shadow:0 0 2px 0 rgba(0,0,0,0.2);
+	z-index:1000;
+}
+
+
+.floater .title_bar, .floater .button_bar {
+	position:absolute;
+	left:0;right:0;
+	padding:2px;
+	font-family:arial;
+	font-size:12px;
+	background-color:rgba(245,245,245,0.5);
+	border-left:1px solid rgb(240,240,240);
+	border-bottom:1px solid rgb(200,200,200);
+	box-shadow:0 0 2px 0 rgba(0,0,0,0.1);
+	cursor:default;
+	user-select:none;
+}
+
+.floater .title_bar {
+	
+	top:-20px;
+	height:15px;
+}
+
+.floater .button_bar {
+	bottom:-34px;
+	height:29px;
+	display:flex;
+	aflex-direction: row-reverse;
+	justify-content:center;
+}
+
+.floater .button_bar .button {
+	height:18px;
+	cursor:pointer;
+	margin-right:4px;
+	margin-left:4px;
+	padding:4px;
+	min-width:30px;
+	text-align:center;
+	border-radius:4px;
+	background-color:rgba(160,160,160,1);
+	color:white;
+	font-family:arial;
+	font-size:16px;
+	margin-top:2px;
+}
+
+.floater .button_bar .button:hover {
+	background-color:rgba(120,180,255,1);
+}
+
+
+.floater .resize_thumb {
+	width:20px;
+	height:20px;
+	cursor:nwse-resize;
+	position:relative;
+	position:absolute;
+	right:5px;
+	bottom:13px;
+}
+
+.floater .resize_thumb:after {
+	position:absolute;left:0;right:0;top:0;bottom:0;
+	content: "\21D8";
+	font-family:arial;
+	font-size:22px;
+}
+
+.floater .content {
+	position:absolute;
+	left:0;right:0;top:0;bottom:0;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+
+}

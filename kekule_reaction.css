@@ -1,0 +1,129 @@
+	/* EDITOR / VIEWER */
+
+.kekule_reaction_exercise_editor, .kekule_reaction_exercise_viewer {
+	padding-bottom:50px;
+	width:100%;
+	border:1px solid rgba(0,0,0,0.2);
+	border-radius:6px;
+	position:relative;
+
+}
+
+.kekule_reaction_exercise_editor .row, .kekule_reaction_exercise_viewer .row {
+	position:relative;
+	height:300px;
+	width:100%;
+}
+
+
+.kekule_reaction_exercise_editor .row .question_container, .kekule_reaction_exercise_editor .row .answer_container, .kekule_reaction_exercise_viewer .row .question_container, .kekule_reaction_exercise_viewer .row .answer_container {
+	position:absolute;
+	top:20px;
+	text-align:center;
+	font-family:arial;
+	font-size:16px;
+}
+
+.kekule_reaction_exercise_editor .row .question_container > *, .kekule_reaction_exercise_editor .row .answer_container > *, .kekule_reaction_exercise_viewer .row .question_container > *, .kekule_reaction_exercise_viewer .row .answer_container > * {
+	margin-top:5px;
+}
+
+.kekule_reaction_exercise_editor .row .question_container, .kekule_reaction_exercise_viewer .row .question_container {
+	left:45%;
+	transform:translateX(-100%);
+}
+
+.kekule_reaction_exercise_viewer .row .question_container .question {
+	box-shadow: 0px 1px 3px 0px black;
+}
+
+.kekule_reaction_exercise_editor .row .answer_container, .kekule_reaction_exercise_viewer .row .answer_container {
+	left:55%;
+	transform:translateX(0%);
+}
+
+.kekule_reaction_exercise_editor .add_button, .kekule_reaction_exercise_editor .delete_button, .kekule_reaction_exercise_viewer .check_button, .kekule_reaction_exercise_viewer .retry_button {
+	position:absolute;
+	font-family:arial;
+	font-size:20px;
+	border-radius:4px;
+	padding:4px;
+	background-color:rgba(160,160,160,1);
+	color:white;
+	width:80px;
+	text-align:center;
+	cursor:pointer;
+}
+
+.kekule_reaction_exercise_editor .add_button:hover, .kekule_reaction_exercise_editor .delete_button:hover, .kekule_reaction_exercise_viewer .check_button:hover, .kekule_reaction_exercise_viewer .retry_button:hover {
+	background-color:rgba(120,180,255,1);
+}
+
+.kekule_reaction_exercise_editor .delete_button:hover {
+	background-color:rgba(255,120,120,1);
+}
+
+.kekule_reaction_exercise_editor .add_button {
+	bottom:20px;left:50%;
+	transform:translateX(-50%);
+}
+
+.kekule_reaction_exercise_editor .delete_button {
+	bottom:50%;left:50%;
+	transform:translate(-50%, 0%);
+}
+
+.kekule_reaction_exercise_viewer .check_button {
+	width:200px;
+	bottom:20px; left:50%;
+	transform:translateX(-50%);
+}
+
+.kekule_reaction_exercise_viewer .retry_button {
+	width:200px;
+	bottom:20px; left:50%;
+	transform:translateX(-50%);
+}
+
+.kekule_reaction_exercise_viewer .score_box_in_progress {
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	transition:bottom 0.2s, opacity 0.2s;
+}
+
+.kekule_reaction_exercise_viewer[data-score_mode=complete] .score_box_in_progress {
+	bottom:-50px;
+	opacity:0;
+}
+
+.kekule_reaction_exercise_viewer .score_box_complete {
+	position:absolute;
+	bottom: 50px;
+	width:100%;
+	transition:bottom 0.2s, opacity 0.2s;
+	opacity:0;
+}
+
+.kekule_reaction_exercise_viewer[data-score_mode=complete] .score_box_complete {
+	bottom:0px;
+	opacity:1;
+}
+
+.kekule_reaction_exercise_viewer .check_marker {
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+	width:50px;
+	height:50px;
+	border-radius:25px;
+}
+
+.kekule_reaction_exercise_viewer[data-score_mode=complete] [data-status=correct] .check_marker {
+	background-color:rgb(128,255,128);
+}
+
+.kekule_reaction_exercise_viewer[data-score_mode=complete] [data-status=incorrect] .check_marker {
+	background-color:red;
+}

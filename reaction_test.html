@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="../H5P.Kekule/kekule/kekule.js"></script>
+		<script src="../H5P.Kekule/util.js"></script>
+		<script src="floater.js"></script>
+		<script src="../H5P.Kekule/kekule_wrapper.js"></script>
+		<script src="kekule_reaction.js"></script>
+		<link rel="stylesheet" type="text/css" href="kekule_reaction.css"/>
+		<link rel="stylesheet" type="text/css" href="floater.css"/>
+		<link rel="stylesheet" type="text/css" href="../H5P.Kekule/kekule_wrapper.css"/>
+		<link rel="stylesheet" type="text/css" href="../H5P.kekule/kekule/themes/default/kekule.css"/>
+	</head>
+	<body>
+
+
+	<div id="kekek"></div>
+	<div id="kekek2"></div>
+	<button id="clicky">buttan</button>
+
+	<script>
+	addEventListener("load", function() {
+		
+		var kekek = document.querySelector("#kekek");
+		var re = new kekule_reaction_exercise(kekek, "editor");
+		re.add_row();
+
+		var kekek2 = document.querySelector("#kekek2");
+		var re2 = new kekule_reaction_exercise(kekek2, "viewer");
+		re2.add_row();
+
+		document.querySelector("#clicky").addEventListener("click", function() {
+			re2.data = re.data;
+		});
+	});
+	
+
+	</script>
+
+
+
+
+
+	</body>
+</html>

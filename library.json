@@ -1,0 +1,25 @@
+{
+  "title": "Kekule Reaction Exercise",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "runnable": 1,
+  "author": "Karli Raudsepp",
+  "machineName": "H5P.KekuleReaction",
+  "preloadedDependencies": [
+    { "machineName" : "H5P.Kekule", "majorVersion" : 1, "minorVersion" : 0 }
+  ],
+  "preloadedJs": [ 
+    { "path": "floater.js" },
+    { "path": "kekule_reaction.js" },
+    { "path": "h5p.js" }
+  ],
+  "preloadedCss": [ 
+    { "path": "floater.css" },
+    { "path": "kekule_reaction.css" }
+  ],
+  "editorDependencies": [ 
+    { "machineName": "H5PEditor.KekuleReactionEditor", "majorVersion": 1, "minorVersion": 0 } 
+  ] 
+
+}
