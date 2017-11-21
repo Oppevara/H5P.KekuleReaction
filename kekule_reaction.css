@@ -1,9 +1,9 @@
 	/* EDITOR / VIEWER */
 
 .kekule_reaction_exercise_editor, .kekule_reaction_exercise_viewer {
-	padding-bottom:50px;
+	padding-bottom:70px;
 	width:100%;
-	border:1px solid rgba(0,0,0,0.2);
+	aborder:1px solid rgba(0,0,0,0.2);
 	border-radius:6px;
 	position:relative;
 
@@ -11,17 +11,38 @@
 
 .kekule_reaction_exercise_editor .row, .kekule_reaction_exercise_viewer .row {
 	position:relative;
-	height:300px;
+	height:260px;
 	width:100%;
+	display:flex;
+	justify-content:space-around;
 }
 
 
 .kekule_reaction_exercise_editor .row .question_container, .kekule_reaction_exercise_editor .row .answer_container, .kekule_reaction_exercise_viewer .row .question_container, .kekule_reaction_exercise_viewer .row .answer_container {
-	position:absolute;
-	top:20px;
+	position:relative;
+	margin-top:20px;
 	text-align:center;
 	font-family:arial;
 	font-size:16px;
+	z-index:1;
+}
+
+.kekule_reaction_exercise_viewer .row .answer_container:before  {
+	content:"";
+	position:absolute;
+	left:-6px;
+	right:-7px;
+	top:0;
+	bottom:0;
+	border-radius:8px;
+}
+
+.kekule_reaction_exercise_viewer .row[data-status=incorrect] .answer_container:before {
+	background-color:rgba(255,0,0,0.5);
+}
+
+.kekule_reaction_exercise_viewer .row[data-status=correct] .answer_container:before {
+	background-color:rgba(128,255,128, 0.5);
 }
 
 .kekule_reaction_exercise_editor .row .question_container > *, .kekule_reaction_exercise_editor .row .answer_container > *, .kekule_reaction_exercise_viewer .row .question_container > *, .kekule_reaction_exercise_viewer .row .answer_container > * {
@@ -29,17 +50,16 @@
 }
 
 .kekule_reaction_exercise_editor .row .question_container, .kekule_reaction_exercise_viewer .row .question_container {
-	left:45%;
-	transform:translateX(-100%);
+
 }
 
 .kekule_reaction_exercise_viewer .row .question_container .question {
-	box-shadow: 0px 1px 3px 0px black;
+	box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+	padding:0px 1px 1px 0px;
 }
 
 .kekule_reaction_exercise_editor .row .answer_container, .kekule_reaction_exercise_viewer .row .answer_container {
-	left:55%;
-	transform:translateX(0%);
+
 }
 
 .kekule_reaction_exercise_editor .add_button, .kekule_reaction_exercise_editor .delete_button, .kekule_reaction_exercise_viewer .check_button, .kekule_reaction_exercise_viewer .retry_button {
@@ -118,6 +138,7 @@
 	width:50px;
 	height:50px;
 	border-radius:25px;
+	z-index:2;
 }
 
 .kekule_reaction_exercise_viewer[data-score_mode=complete] [data-status=correct] .check_marker {

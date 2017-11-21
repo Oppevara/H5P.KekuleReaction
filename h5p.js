@@ -16,9 +16,9 @@ H5P.KekuleReaction = (function ($) {
     el_applet_container.id = random_string();
 
     this.applet = new kekule_reaction_exercise(el_applet_container, "viewer");
-    try {
+    //try {
       this.applet.data = this.data.data;
-    } catch(ex) {}
+    //} catch(ex) {}
   };
  
   return C;

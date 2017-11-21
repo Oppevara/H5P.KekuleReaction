@@ -12,9 +12,15 @@ function kekule_reaction_exercise(el, mode, width, height) {
 			
 		},
 		'set' : function(v) {
-			if (this.mode == "viewer") this._data = v;
 			this.clear_rows();
 			if (v == undefined) return;
+
+			if (this.mode == "viewer") {
+				this._data = v;
+				this.score_bar.score = 0;
+				this.score_bar.total = v.rows.length;
+				this.score_bar.refresh();
+			}		
 			var rows = v.rows;
 			for (var i = 0; i < rows.length; i++) {
 				this.add_row(rows[i]);
@@ -77,6 +83,16 @@ function kekule_reaction_exercise(el, mode, width, height) {
 		var question = undefined;
 		var answer = new kekule_wrapper(answer_el, "floater", 300, 200);
 
+		this.changed_answers = [];
+		answer.add_event_listener("changed", function(a) {
+			if (this.changed_answers.indexOf(a) == -1) {
+				this.changed_answers.push(a);
+			}
+			this.score_bar.score = this.changed_answers.length;
+			this.score_bar.refresh();
+		}.bind(this));
+
+
 		if (this.mode == "editor") {
 			question = new kekule_wrapper(question_el, "floater", 300, 200);
 
@@ -86,8 +102,6 @@ function kekule_reaction_exercise(el, mode, width, height) {
 			}.bind(this));
 		} else {
 			question = new kekule_wrapper(question_el, "viewer", 300, 200);
-
-			var check_marker = build("div", "check_marker", row);
 		}
 
 		row.kekule_reaction_exercise = {
@@ -116,6 +130,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 
 	this.check_answers = function() {
 		var row_els = this.inner.querySelectorAll(".row");
+		var n_correct = 0;
 		for (var i = 0; i < row_els.length; i++) {
 			var ex_obj = row_els[i].kekule_reaction_exercise;
 			var correct = false;
@@ -131,32 +146,28 @@ function kekule_reaction_exercise(el, mode, width, height) {
 
 			if (correct) {
 				row_els[i].setAttribute("data-status", "correct");
+				n_correct++;
 			} else {
 				row_els[i].setAttribute("data-status", "incorrect");
 			}
 
 		}
+		this.score_bar.score = n_correct;
+		this.score_bar.refresh();
 	}.bind(this);
 
 	this.build_viewer = function() {
 		this.inner = build("div", "kekule_reaction_exercise_viewer", this.el);
+		this.score_bar = new score_bar(this.inner);
+		this.el.appendChild(this.score_bar.el);
 
-		this.inner.setAttribute("data-score_mode", "in_progress");
+		this.score_bar.check = this.check_answers;
 
-		var score_box_in_progress = build("div", "score_box_in_progress", this.inner);
-		var check_button = build("div", "check_button", score_box_in_progress, "Check Answers");
-		check_button.addEventListener("click", function() {
-			this.inner.setAttribute("data-score_mode", "complete");
-			this.check_answers();
-		}.bind(this));
-
-		var score_box_complete = build("div", "score_box_complete", this.inner);
-		var retry_button = build("div", "retry_button", score_box_complete, "Retry");
-		retry_button.addEventListener("click", function() {
-			this.inner.setAttribute("data-score_mode", "in_progress");
+		this.score_bar.reset = function() {
+			this.clear_rows();
 			this.data = this.data;
-		}.bind(this));
 
+		}.bind(this);
 	}.bind(this);
 
 
