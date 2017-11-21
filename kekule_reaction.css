@@ -1,5 +1,9 @@
 	/* EDITOR / VIEWER */
 
+.kekule_reaction_editor {
+	min-height:500px;
+}
+
 .kekule_reaction_exercise_editor, .kekule_reaction_exercise_viewer {
 	padding-bottom:70px;
 	width:100%;
