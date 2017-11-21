@@ -66,6 +66,16 @@
 
 }
 
+.kekule_reaction_exercise_viewer .answer_container .show {
+	position:absolute;
+	left:0;top:24px;
+	visibility:hidden;
+}
+
+[data-score_show=true] .show {
+	visibility:visible !important;
+}
+
 .kekule_reaction_exercise_editor .add_button, .kekule_reaction_exercise_editor .delete_button, .kekule_reaction_exercise_viewer .check_button, .kekule_reaction_exercise_viewer .retry_button {
 	position:absolute;
 	font-family:arial;

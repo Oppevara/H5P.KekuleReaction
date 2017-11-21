@@ -79,8 +79,10 @@ function kekule_reaction_exercise(el, mode, width, height) {
 
 		var question_el = build("div", "question", question_container);
 		var answer_el = build("div", "answer", answer_container);
+		var show_el = build("div", "show", answer_container);
 
 		var question = undefined;
+		var show = undefined;
 		var answer = new kekule_wrapper(answer_el, "floater", 300, 200);
 
 		this.changed_answers = [];
@@ -101,6 +103,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 				this.inner.removeChild(row);
 			}.bind(this));
 		} else {
+			show = new kekule_wrapper(show_el, "viewer", 300, 200);
 			question = new kekule_wrapper(question_el, "viewer", 300, 200);
 		}
 
@@ -115,6 +118,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 			if (this.mode == "editor") {
 				answer.data = row_data.answer_data;
 			} else {
+				show.data = row_data.answer_data;
 				if (row_data.answer_data !== undefined) {
 					row.kekule_reaction_exercise.correct_answer = Kekule.ChemStructureUtils.getTotalStructFragment(Kekule.IO.loadMimeData(row_data.answer_data, 'chemical/x-kekule-json'));
 				}
@@ -166,8 +170,8 @@ function kekule_reaction_exercise(el, mode, width, height) {
 		this.score_bar.reset = function() {
 			this.clear_rows();
 			this.data = this.data;
-
 		}.bind(this);
+
 	}.bind(this);
 
 
