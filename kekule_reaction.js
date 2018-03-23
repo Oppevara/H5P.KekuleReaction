@@ -29,8 +29,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 	});
 
 	this._sync_size = function() {
-		//this.el.style.width = this._width + "px";
-		//this.el.style.height = this._height + "px";
+		h5p_resize_all_instances();
 	};
 
 	Object.defineProperty(this, "width", {
