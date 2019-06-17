@@ -2,7 +2,7 @@
   "title": "Kekule Reaction Exercise",
   "majorVersion": 1,
   "minorVersion": 0,
-  "patchVersion": 7,
+  "patchVersion": 8,
   "runnable": 1,
   "author": "Karli Raudsepp",
   "machineName": "H5P.KekuleReaction",
@@ -13,11 +13,11 @@
     { "path": "kekule_reaction.js" },
     { "path": "h5p.js" }
   ],
-  "preloadedCss": [ 
+  "preloadedCss": [
     { "path": "kekule_reaction.css" }
   ],
-  "editorDependencies": [ 
-    { "machineName": "H5PEditor.KekuleReactionEditor", "majorVersion": 1, "minorVersion": 0 } 
-  ] 
+  "editorDependencies": [
+    { "machineName": "H5PEditor.KekuleReactionEditor", "majorVersion": 1, "minorVersion": 0 }
+  ]
 
 }

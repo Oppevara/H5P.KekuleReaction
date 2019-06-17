@@ -9,7 +9,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 		'get' : function() {
 			if (this.mode == "viewer") return this._data;
 			return (this.get_data_editor());
-			
+
 		},
 		'set' : function(v) {
 			this.clear_rows();
@@ -20,7 +20,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 				this.score_bar.score = 0;
 				this.score_bar.total = v.rows.length;
 				this.score_bar.refresh();
-			}		
+			}
 			var rows = v.rows;
 			for (var i = 0; i < rows.length; i++) {
 				this.add_row(rows[i]);
@@ -40,7 +40,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 			this._width = v;
 			this._sync_size();
 		}
-	}); 
+	});
 
 	Object.defineProperty(this, "height", {
 		'get' : function() {
@@ -73,8 +73,8 @@ function kekule_reaction_exercise(el, mode, width, height) {
 		if (row_data instanceof MouseEvent) row_data = undefined;
 
 		var row = build("div", "row", this.inner);
-		var question_container = build("div", "question_container", row, "Question");
-		var answer_container = build("div", "answer_container", row, "Answer");
+		var question_container = build("div", "question_container", row, "Küsimus");
+		var answer_container = build("div", "answer_container", row, "Vastus");
 
 		var question_el = build("div", "question", question_container);
 		var answer_el = build("div", "answer", answer_container);
@@ -144,7 +144,7 @@ function kekule_reaction_exercise(el, mode, width, height) {
 				correct = false;
 			} else {
 				var answer = Kekule.ChemStructureUtils.getTotalStructFragment(Kekule.IO.loadMimeData(ex_obj.answer.data, 'chemical/x-kekule-json'));
-				correct = answer.isSameStructureWith(ex_obj.correct_answer);			
+				correct = answer.isSameStructureWith(ex_obj.correct_answer);
 			}
 
 			if (correct) {
